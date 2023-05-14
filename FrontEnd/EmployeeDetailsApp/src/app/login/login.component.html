@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <h4 *ngIf="!register" class="card-title text-center">Login</h4>
+          <h4 *ngIf="register" class="card-title text-center">Register</h4>
+          <div style="color: red" *ngIf="invalidLogin" class="invalid-login">
+            Invalid Login Please try again
+          </div>
+          <div
+            style="color: red"
+            *ngIf="invalidRegistration"
+            class="invalid-registration"
+          >
+            Invalid Registration Please try again
+          </div>
+          <form
+            #form="ngForm"
+            [formGroup]="loginForm"
+            (ngSubmit)="onSubmit(form)"
+          >
+            <div style="display: flex; align-items: center" class="form-group">
+              <label for="username">Username:</label>&nbsp;&nbsp;
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                formControlName="username"
+                placeholder="Enter username"
+                required
+              />
+            </div>
+            <div style="display: flex; align-items: center" class="form-group">
+              <label for="password">Password:</label>&nbsp;&nbsp;
+              <input
+                type="{{ passwordType }}"
+                class="form-control"
+                id="password"
+                name="password"
+                formControlName="password"
+                placeholder="Password"
+                required
+              />
+              <span
+                (click)="togglePasswordVisibility()"
+                style="margin-left: -24px"
+                class="material-icons"
+              >
+                visibility
+              </span>
+            </div>
+            <div *ngIf="!register">
+              <span (click)="toggleRegLog()">register</span>
+            </div>
+            <div *ngIf="register">
+              <span (click)="toggleRegLog()">login</span>
+            </div>
+            <div style="text-align: center">
+              <button
+                *ngIf="!register"
+                type="submit"
+                class="btn btn-primary btn-block"
+                [disabled]="!loginForm.valid"
+              >
+                Login
+              </button>
+              <button
+                *ngIf="register"
+                type="submit"
+                class="btn btn-primary btn-block"
+                [disabled]="!loginForm.valid"
+              >
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

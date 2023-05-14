@@ -1,0 +1,12 @@
+/****** Creating Department Table ******/
+CREATE TABLE DEPT_TABLE (
+    DEPT_ID INT PRIMARY KEY,
+    DEPT_Name VARCHAR(50) NOT NULL
+);
+
+
+/****** Populating the table ******/
+INSERT INTO DEPT_TABLE (DEPT_ID, DEPT_Name)
+VALUES (101, 'Finance'),
+       (201, 'IT');
+

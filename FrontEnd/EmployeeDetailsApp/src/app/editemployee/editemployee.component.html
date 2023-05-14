@@ -1,0 +1,106 @@
+<app-navbar></app-navbar>
+<div>
+  <h2 style="margin: 1rem 2rem">Edit Employee Details</h2>
+  <form
+    action=""
+    #form="ngForm"
+    [formGroup]="editForm"
+    (ngSubmit)="onSubmit(form)"
+  >
+    <div class="form-group" style="margin: 1rem">
+      <label class="form-label" for="name">Name:</label>
+      <input
+        class="form-control"
+        type="text"
+        id="name"
+        name="name"
+        formControlName="name"
+        required
+      />
+    </div>
+
+    <div class="form-group" style="margin: 1rem">
+      <label class="form-label" for="age">Age:</label>
+      <input
+        class="form-control"
+        type="text"
+        id="age"
+        name="age"
+        formControlName="age"
+        required
+      />
+    </div>
+
+    <div class="form-group" style="margin: 1rem">
+      <label>Gender</label>
+      <select name="gender" formControlName="gender">
+        <option value="" selected disabled hidden>Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">other</option>
+      </select>
+    </div>
+
+    <div class="form-group" style="margin: 1rem">
+      <label class="form-label" for="dob">Date of birth:</label>
+      <input
+        class="form-control"
+        type="date"
+        id="dob"
+        name="dob"
+        formControlName="dob"
+        required
+      />
+    </div>
+
+    <div class="form-group" style="margin: 1rem">
+      <label class="form-label" for="salary">Salary:</label>
+      <input
+        class="form-control"
+        type="text"
+        id="salary"
+        name="salary"
+        formControlName="salary"
+        required
+      />
+    </div>
+
+    <div class="form-group" style="margin: 1rem">
+      <label class="form-label" for="address">Address:</label>
+      <input
+        class="form-control"
+        type="text"
+        id="address"
+        name="address"
+        formControlName="address"
+        required
+      />
+    </div>
+
+    <div class="form-group" style="margin: 1rem">
+      <label class="form-label">Department</label>
+      <select name="Dept" id="Dept" formControlName="department">
+        <option value="" selected disabled hidden>
+          <span style="color: darkgrey">Department</span>
+        </option>
+        <option *ngFor="let dept of deptList" [value]="dept.deptName">
+          {{ dept.deptName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group" style="margin: 1rem">
+      <label class="form-label" for="createdBy">CreatedBy:</label>
+      <input
+        class="form-control"
+        type="text"
+        id="createdBy"
+        name="createdBy"
+        formControlName="createdBy"
+        required
+      />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>

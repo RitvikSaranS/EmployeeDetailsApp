@@ -1,0 +1,34 @@
+/****** Creating Employee Table ******/
+CREATE TABLE EMP_TABLE (
+  EMPID varchar(8) PRIMARY KEY DEFAULT 'EMP0001',
+  Name varchar(50),
+  Age int,
+  Gender varchar(10),
+  DOB date,
+  Salary decimal(10,2),
+  Address varchar(100),
+  DEPT_ID int,
+  CreatedBy varchar(50),
+  CreatedDate datetime
+);
+
+
+/****** Trigger to autogenerate EMPID ******/
+CREATE TRIGGER EmployeeIDTrigger
+ON EMP_TABLE
+AFTER INSERT
+AS
+BEGIN
+  DECLARE @maxEmpID varchar(8)
+  SET @maxEmpID = (SELECT MAX(EMPID) FROM EMP_TABLE)
+  DECLARE @nextEmpID varchar(8)
+  IF @maxEmpID IS NULL
+    SET @nextEmpID = 'EMP0001'
+  ELSE
+    SET @nextEmpID = 'EMP' + RIGHT('0000' + CAST(RIGHT(@maxEmpID, 4) + 1 AS varchar), 4)
+  UPDATE EMP_TABLE SET EMPID = @nextEmpID WHERE EMPID = 'EMP0000'
+END
+
+/****** Populating the table ******/
+INSERT INTO EMP_TABLE (Name, Age, Gender, DOB, Salary, Address, DEPT_ID, CreatedBy, CreatedDate)
+VALUES ('Ritvik Saran S', 23, 'Male', '2000-04-24', 20000.00, 'Kolathur House, Mavungal, Kasaragod, Kerala', 1, 'Ritvik Saran S', GETDATE());

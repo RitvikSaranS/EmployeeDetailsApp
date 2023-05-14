@@ -1,0 +1,19 @@
+//Employee
+{
+    "empid": "EMP0002",
+    "name": "Sasidharan C K",
+    "age": 51,
+    "gender": "Male",
+    "dob": "1971-05-21T00:00:00",
+    "salary": 40000.00,
+    "address": "Kolathur House, Mavungal, Kasaragod, Kerala",
+    "deptId": 201,
+    "createdBy": "Sasidharan C K",
+    "createdDate": "2023-04-25T10:13:57.07"
+}
+
+//Department
+{
+    "deptId": 201,
+    "deptName": "IT"
+}

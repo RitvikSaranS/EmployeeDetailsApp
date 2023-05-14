@@ -1,0 +1,33 @@
+h4 {
+  margin: 2rem 0;
+}
+
+span {
+  color: #6f38c5;
+  cursor: pointer;
+}
+
+.container {
+  margin-top: 100px;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.btn-block {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #6f38c5 !important;
+}

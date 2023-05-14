@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<h3 style="margin: 1rem 2rem">Employee List</h3>
+<div>
+  <table>
+    <tr style="width: 100%">
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Date Of Birth</th>
+      <th>Salary</th>
+      <th>Address</th>
+      <th>DeptId</th>
+      <th>CreatedBy</th>
+      <th>CreatedDate</th>
+      <th>Edit Employee</th>
+      <th>Delete Employee</th>
+    </tr>
+    <tr style="width: 100%" *ngFor="let employee of employeeList">
+      <td data-label="Name">{{ employee.name }}</td>
+      <td data-label="Age">{{ employee.age }}</td>
+      <td data-label="Gender">{{ employee.gender }}</td>
+      <td data-label="Dob">{{ employee.dob }}</td>
+      <td data-label="Salary">{{ employee.salary }}</td>
+      <td data-label="Address">{{ employee.address }}</td>
+      <td data-label="DeptId">{{ employee.deptId }}</td>
+      <td data-label="CreatedBy">{{ employee.createdBy }}</td>
+      <td data-label="CreatedDate">{{ employee.createdDate }}</td>
+      <td>
+        <i
+          style="cursor: pointer"
+          (click)="editEmployee(employee)"
+          class="material-icons"
+          >edit</i
+        >
+      </td>
+      <td>
+        <i
+          style="cursor: pointer"
+          (click)="removeEmployee(employee)"
+          class="material-icons"
+          >delete</i
+        >
+      </td>
+    </tr>
+  </table>
+</div>

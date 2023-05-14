@@ -1,0 +1,3 @@
+/****** Sets foreign key of EmployeeTable to Primary key of DepartmentTable to avoid invalid values ******/
+ALTER TABLE EMP_TABLE
+ADD FOREIGN KEY (EMPID) REFERENCES DEPT_TABLE(EMPID);

@@ -1,0 +1,19 @@
+<nav>
+  <ul class="navbar-links">
+    <li>
+      <a style="font-size: 1.5rem" routerLink="/home">{{ title }}</a>
+    </li>
+    <li>
+      <a routerLink="/registration">Register</a>
+    </li>
+    <li style="cursor: pointer" class="dropdown">
+      <a (click)="doNothing()"
+        ><span class="material-symbols-outlined"> account_circle </span
+        ><span class="arrow">&#9660;</span></a
+      >
+      <ul class="dropdown-menu">
+        <li><a href="#" (click)="logout()">Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
